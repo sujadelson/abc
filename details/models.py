@@ -12,3 +12,15 @@ class Students(models.Model):
 
     def __str__(self):  
         return self.first_name + " " + self.last_name
+
+
+class Marks(models.Model):
+    student_name = models.ForeignKey(Students, on_delete=models.CASCADE)
+    phy_mark = models.IntegerField()
+    chem_mark = models.IntegerField()
+    bio_mark = models.IntegerField()
+
+
+class FullDetail(models.Model):
+    student_id = models.IntegerField()
+    mark_id = models.IntegerField(null=True)
